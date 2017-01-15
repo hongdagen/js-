@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#test {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: 100px auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="test"></div>
+		<script>
+			var a = document.getElementById("test");
+			a.onclick = function(e) {
+				console.log("clientX"+e.clientX);
+				console.log("clientY"+e.clientY);
+				console.log("screenX"+e.screenX);
+				console.log("screenY"+e.screenY);
+				console.log("offsetX"+e.offsetX);
+				console.log("offsetY"+e.offsetY);
+				console.log("pageX"+e.pageX);
+				console.log("pageY"+e.pageY);
+				console.log("X"+e.x);
+				console.log("Y"+e.y);
+			}
+		</script>
+	</body>
+
+</html>

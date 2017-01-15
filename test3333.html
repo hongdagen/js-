@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#ct {
+				width: 500px;
+				height: 300px;
+				background-color: red;
+				margin: 1000px auto;
+			}
+			
+			@keyframes fadeInLeft {
+				0% {
+					opacity: 0;
+					-webkit-transform: tranlate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			.fadeInLeft {
+				-webkit-animation-name: fadeInLeft;
+				animation-name: fadeInLeft;
+				-webkit-animation-duration: 2s;
+				animation-duration: 2s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="ct">
+
+		</div>
+		<script>
+			//懒加载
+			function showDiv() {
+				var showId = document.getElementById("ct");
+				var clients = window.innerHeight || document.documentElement.clientHeight ||
+					document.body.clientHeight;
+				//可视区域 
+				var divTop = showId.getBoundingClientRect().top;
+				//div顶部距浏览器顶部的距离
+				if(divTop <= clients) {
+					showId.classList.add("fadeInLeft");
+				}
+			}
+
+			function scrollBottomOrTop() {
+				var clients = window.innerHeight || document.documentElement.clientHeight ||
+					document.body.clientHeight;
+				var scrollTop = document.body.scrollTop;
+				var wholeHeight = document.body.scrollHeight;
+				if(clients + scrollTop >= wholeHeight) {
+					alert('我已经滚到了底部');
+				}
+				if(scrollTop == 0) {
+					alert("我已经滚到了顶部");
+				}
+			}
+			window.onscroll = showDiv;
+			window.onscroll = scrollBottomOrTop;
+		</script>
+	</body>
+
+</html>
